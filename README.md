@@ -8,9 +8,8 @@ No database. Nothing is precomputed or stored. Any deck is reconstructed from it
 
 A deck ordering is a permutation of 52 card IDs. Every permutation has a Lehmer code: at each position, record how many still-unplaced cards were smaller than the card chosen. Weight that digit by its factorial position and sum:
 
-```text
-rank(p) = Σ cᵢ · (51 − i)!
-```
+$$ \text{rank}(p) = \sum c_i \cdot (51 - i)! $$
+
 
 The effective radices are 52, 51, …, 2, so every index in `[0, 52!)` names exactly one deck and every deck has exactly one index. 52! is 68 decimal digits (226 bits), so every index is stored as a `BigInt`.
 

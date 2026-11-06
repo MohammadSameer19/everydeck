@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#04140f" />
+  <!-- Two overlapping cards: a deck, and the idea that one address names it. -->
+  <rect x="7" y="9" width="12" height="16" rx="2" fill="#fdfdfa" transform="rotate(-9 13 17)" />
+  <rect x="14" y="7" width="12" height="16" rx="2" fill="#fdfdfa" />
+  <text
+    x="20"
+    y="19"
+    font-family="ui-sans-serif, system-ui, sans-serif"
+    font-size="11"
+    font-weight="700"
+    fill="#c0392b"
+    text-anchor="middle"
+  >
+    A
+  </text>
+  <text
+    x="20"
+    y="22"
+    font-family="ui-sans-serif, system-ui, sans-serif"
+    font-size="7"
+    fill="#c0392b"
+    text-anchor="middle"
+  >
+    ♠
+  </text>
+</svg>

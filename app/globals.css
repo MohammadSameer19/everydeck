@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino,
+    Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", Menlo, monospace;
+
+  /*
+   * A printed specimen sheet, not a glass instrument panel: warm paper,
+   * warm ink, and the red of the cards as the only accent.
+   */
+  --color-paper: #f3efe6;
+  --color-raised: #fbf8f1;
+  --color-ink: #1b1917;
+  --color-muted: #786f63;
+  --color-muted-strong: #6b6256;
+  --color-rule: #d9d1c2;
+  --color-accent: #b42318;
+  --color-accent-soft: #f3dcd8;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-paper);
+  /* A barely-there grain. Paper is not a flat fill; the texture is what
+     separates a printed sheet from a grey rectangle. Kept at 3.5% so it
+     reads as tooth, not as dirt. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+/* A paper-coloured glow under numerals that must stay legible over cards. */
+.legible-num {
+  text-shadow:
+    0 1px 2px rgba(243, 239, 230, 0.95),
+    0 2px 8px rgba(243, 239, 230, 0.85);
+}
+
+/* Hide the native range input entirely; the ruler draws its own ticks. */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 40px;
+  cursor: ew-resize;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  cursor: ew-resize;
+}
+
+select option {
+  background-color: var(--color-raised);
+  color: var(--color-ink);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(27, 25, 23, 0.18);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(27, 25, 23, 0.32);
+}
+
+/*
+ * Honour the OS setting for every transition we own. The `FX` toggle in the
+ * UI does the same thing, but this is the floor: someone who asked the OS
+ * for less motion should never have to opt out one control at a time.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

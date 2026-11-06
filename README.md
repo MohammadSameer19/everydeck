@@ -14,15 +14,13 @@ rank(p) = Σ cᵢ · (51 − i)!
 
 The effective radices are 52, 51, …, 2, so every index in `[0, 52!)` names exactly one deck and every deck has exactly one index. 52! is 68 decimal digits (226 bits), so every index is stored as a `BigInt`.
 
-## Features
+## How it works
 
-- **Grid, Fan, and Piles** — three layouts, measured from the space the deck is actually given.
-- **Exact navigation** — step through neighbouring decks, type an index, or drag the ruler.
-- **Shareable addresses** — the URL carries a human-readable deck string (`?deck=…`) or the canonical integer (`#…`).
-- **Named decks** — Faro, Mongean, reversed, and other constructions, verified against their measured indices at module load.
-- **Lehmer inspector** — see the mixed-radix digits that make up the current index.
-- **Copy link** — copy either the deck or index form, preserving the current view.
-- **Calm by default** — warm paper, light chrome, and reduced-motion support.
+1. A deck is 52 cards in a particular order.
+2. Every possible order can be written as one large number. That number always rebuilds the same order.
+3. The app reads the number, builds the deck in your browser, and draws it. There is no database and no saved list of decks.
+4. The ruler, step buttons, and index box change the number. Grid, Fan, and Piles are just three ways to draw the same deck.
+5. A shared link carries the number, so the same deck opens for anyone who clicks it.
 
 ## Getting started
 

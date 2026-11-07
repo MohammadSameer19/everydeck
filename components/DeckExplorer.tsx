@@ -208,7 +208,7 @@ export default function DeckExplorer({
               rel="noopener noreferrer"
               aria-label="Every Deck on GitHub"
               title="Every Deck on GitHub"
-              className="text-muted-strong hover:text-ink focus-visible:ring-accent/45 inline-flex h-6 w-6 items-center justify-center transition-colors focus-visible:ring-2 focus-visible:outline-none"
+              className="border-ink bg-ink text-paper hover:border-accent hover:bg-accent focus-visible:ring-accent/45 inline-flex h-7 w-7 items-center justify-center border transition-colors focus-visible:ring-2 focus-visible:outline-none"
             >
               <svg
                 viewBox="0 0 16 16"
